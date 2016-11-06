@@ -162,16 +162,24 @@ verifySignECDSA[z_,H:{xh_,yh_},{r_,s_}]:=
 
 
 (*** 7. Example ***)
+
+(* generate random private key d *)
 d=randomPrivateKeyECDSA[]
 
+(* generate the public key associated with private key d *)
 {xh,yh}=publicKeyECDSA[d]
 
+(* find the hash of a message *)
 z=Hash["Hello World!","SHA256"]
 
+(* sign the message hash *)
 {r,s}=signECDSA[z,d]
 
+(* verify if the signature is correct *)
 verifySignECDSA[z,{xh,yh},{r,s}]
 
+(* try to sign the message with random signatures *)
 Table[verifySignECDSA[z,{xh,yh},{randomPrivateKeyECDSA[],randomPrivateKeyECDSA[]}],{10}]
 
+(* test functions with random numbers *)
 Table[verifySignECDSA[randomPrivateKeyECDSA[],{randomPrivateKeyECDSA[],randomPrivateKeyECDSA[]},{randomPrivateKeyECDSA[],randomPrivateKeyECDSA[]}],{10}]
