@@ -86,7 +86,7 @@ Add it to our result (so that we get (2^4)P+(2^2)P+(2^1)P+(2^0)P.
 ...
 ```
 ####References
-Fast theoretical background:
+Quick theoretical background:
 
 1. [Andrea Corbellini, Elliptic Curve Cryptography: a gentle introduction](http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/)
 2. [Andrea Corbellini, Elliptic Curve Cryptography: Elliptic Curve Cryptography: finite fields and discrete logarithms](http://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/)
