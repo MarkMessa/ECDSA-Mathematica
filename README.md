@@ -44,3 +44,53 @@ The code is divided in two main parts:
   - setup of `secp256k1` standard parameters
   - signing the hash of a message
   - signature verification
+
+##Pseudo-Codes
+###Elliptic curve operations over a finite field of integers modulo p
+####Point addition: Function ecAddMod
+Given P=(xp, yp), Q=(xq, yq) and R=(xr, yr), we can calculate the point addition P+Q=−R as follows:
+```
+xr=(m^2−xp−xq) mod p
+yr=[yp+m(xr−xp)] mod p
+  =[yq+m(xr−xq)] mod p
+```
+If P≠Q, the slope m assumes the form:
+```
+m=(yp−yq)(xp−xq)^−1 mod p
+```
+Else, if P=Q, we have:
+```
+m=(3xp^2+a)(2yp)^−1 mod p
+```
+####Scalar Multiplication: Function ecProductMod
+Other than addition, we can define another operation: scalar multiplication, that is:
+```
+nP=P+P+⋯+P (n times)
+```
+Written in that form, it seems that computing nP requires n additions. If n has k binary digits, then our algorithm would be O(2^k), which is not really good. However, there exist faster algorithms. One of them is the double and add algorithm.
+Its principle of operation can be better explained with an example. Take n=151. We can write:
+```
+151⋅P=(2^7)P+(2^4)P+(2^2)P+(2^1)P+(2^0)P
+```
+What the double and add algorithm tells us to do is:
+```
+Take P.
+Double it, so that we get 2P.
+Add 2P to P (in order to get the result of (2^1)P+(2^0)P.
+Double 2P, so that we get (2^2)P.
+Add it to our result (so that we get (2^2)P+(2^1)P+(2^0)P.
+Double (2^2)P to get (2^3)P.
+Don't perform any addition involving (2^3)P.
+Double (2^3)P to get (2^4)P.
+Add it to our result (so that we get (2^4)P+(2^2)P+(2^1)P+(2^0)P.
+...
+```
+####References
+Fast theoretical background:
+
+1. [Andrea Corbellini, Elliptic Curve Cryptography: a gentle introduction](http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/)
+2. [Andrea Corbellini, Elliptic Curve Cryptography: Elliptic Curve Cryptography: finite fields and discrete logarithms](http://andrea.corbellini.name/2015/05/23/elliptic-curve-cryptography-finite-fields-and-discrete-logarithms/)
+
+Reference code implementation:
+
+3. [John McGee, M.Sc Thesis in Elliptic Curve Cryptography: pg 57-58](https://theses.lib.vt.edu/theses/available/etd-04252006-161727/unrestricted/SchoofsAlgorithmThesisMcGee.pdf)
