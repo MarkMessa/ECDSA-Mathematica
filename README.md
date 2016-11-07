@@ -96,7 +96,7 @@ Reference code implementation:
 3. [John McGee, M.Sc Thesis in Elliptic Curve Cryptography: pg 57-58](https://theses.lib.vt.edu/theses/available/etd-04252006-161727/unrestricted/SchoofsAlgorithmThesisMcGee.pdf)
 
 ###Digital signing using ECDSA with standard parameters `secp256k1`
-####setup of `secp256k1` standard parameters
+####Setup of `secp256k1` standard parameters
 The elliptic curve domain parameters over Fp associated with a Koblitz curve secp256k1 are specified by:
   - p = 0xffffffff ffffffff ffffffff ffffffff ffffffff ffffffff fffffffe fffffc2f
   - a = 0
@@ -106,13 +106,14 @@ The elliptic curve domain parameters over Fp associated with a Koblitz curve sec
   - n = 0xffffffff ffffffff ffffffff fffffffe baaedce6 af48a03b bfd25e8c d0364141
   - h = 1
 
-####key pair generation: Functions randomPrivateKeyECDSA and publicKeyECDSA
+####Key pair generation: Functions randomPrivateKeyECDSA and publicKeyECDSA
   - The private key is a random integer d chosen from {1,…,n−1} (where n is the order of the subgroup).
   - The public key is the point H=dG (where G is the base point of the subgroup).
 
-####signing the hash of a message: Function signECDSA
+####Signing the hash of a message: Function signECDSA
 ECDSA works on the hash of the message, rather than on the message itself. The truncated hash is an integer and will be denoted as z. The algorithm performed to sign the message works as follows:
 
+```
 1. Take a random integer k chosen from {1,…,n−1} (where n is still the subgroup order).
 2. Calculate the point P=kG (where G is the base point of the subgroup).
 3. Calculate the number r=xp mod n (where xp is the x coordinate of P).
@@ -120,14 +121,17 @@ ECDSA works on the hash of the message, rather than on the message itself. The t
 5. Calculate s=(k^−1)(z+rd) mod n (where d is the private key and k^−1 is the multiplicative inverse of k modulo n).
 6. If s=0, then choose another k and try again.
 7. The pair (r,s) is the signature.
+```
 
-####signature verification
+####Signature verification: Function verifySignECDSA
 In order to verify the signature it is necessary the public key H, the (truncated) hash z and, obviously, the signature (r,s).
 
+```
 1. Calculate the integer u1=(s^−1)z mod n.
 2. Calculate the integer u2=(s^−1)r mod n.
 3. Calculate the point P=u1G+u2H.
 4. The signature is valid only if r=xp mod n.
+```
 
 ####References
 
