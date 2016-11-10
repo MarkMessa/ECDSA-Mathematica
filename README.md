@@ -137,3 +137,7 @@ In order to verify the signature it is necessary the public key H, the (truncate
 
 1. [Certicom Research, Standards for Efficient Cryptography 2.0: Recommended Elliptic Curve Domain Parameters, pg 9](http://www.secg.org/sec2-v2.pdf)
 2. [Andrea Corbellini, Elliptic Curve Cryptography: ECDH and ECDSA](http://andrea.corbellini.name/2015/05/30/elliptic-curve-cryptography-ecdh-and-ecdsa/)
+
+
+##Validation
+For validation purposes it was used [jsrsasign](https://kjur.github.io/jsrsasign/sample-ecdsa.html) which is an opensource free pure JavaScript cryptographic library that supports, among others, ECDSA `secp256k1` via internet browser. Basically, some message was signed with Mathematica and the signature was confirmed with 'jsrsasign'.
