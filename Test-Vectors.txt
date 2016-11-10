@@ -4,7 +4,7 @@ Test-Vectors obtained through ECDSA for Mathematica and confirmed to be correct 
 ##Fields description
 - Public Key Uncompressed: x and y coordinates of public key followed by 0x04
 - Signature DER Encoding: 0x3045022100 followed by r signature followed by 0x022100 followed by s signature
-- Verification: does Mathematica verification code recognize as a valid signature
+- Verification: does Mathematica verification code recognize as a valid signature?
 
 ##Fields used as inputs for 'jsrsasign'
 - Public Key Uncompressed
