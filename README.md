@@ -143,5 +143,5 @@ In order to verify the signature it is necessary the public key H, the (truncate
 
 
 ##Validation
-For validation purposes it was used [jsrsasign](https://kjur.github.io/jsrsasign/sample-ecdsa.html) which is an opensource free pure JavaScript cryptographic library that supports, among others, ECDSA `secp256k1` via internet browser. Basically, the validation consisted of signing some message with the Mathematica Code and than confirm the signature with 'jsrsasign':
+For validation purposes it was used [jsrsasign](https://kjur.github.io/jsrsasign/sample-ecdsa.html) which is an opensource free pure JavaScript cryptographic library that supports, among others, ECDSA `secp256k1` via internet browser. Basically, the validation consisted of signing some message with Mathematica and then confirming the signature with 'jsrsasign':
 - [Test-Vectors File](https://github.com/MarkMessa/ECDSA-Mathematica/blob/master/Test-Vectors.txt)
