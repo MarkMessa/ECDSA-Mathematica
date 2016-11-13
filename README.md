@@ -75,7 +75,7 @@ Its principle of operation can be better explained with an example. For example,
 ```
 151⋅P=(2^7)P+(2^4)P+(2^2)P+(2^1)P+(2^0)P
 ```
-The double and add algorithm for that case would be:
+In this case, the double and add algorithm would be:
 ```
 Take P.
 Double it, so that we get 2P.
