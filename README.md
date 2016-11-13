@@ -66,7 +66,7 @@ Else, if P=Q, we have:
 m=(3xp^2+a)(2yp)^−1 mod p
 ```
 ####Scalar Multiplication: Function ecProductMod
-Other than addition, we can define another operation: scalar multiplication, that is:
+It is possible to define other operations besides addition, for example, scalar multiplication:
 ```
 nP=P+P+⋯+P (n times)
 ```
