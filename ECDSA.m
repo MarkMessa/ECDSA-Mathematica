@@ -1,6 +1,6 @@
 (*
 ECDSA for Mathematica 9
-Package for signature generation and verification using ECDSA (elliptic curve digital signature algorithm) with parameters secp256k1.
+Package for signature generation and verification using ECDSA (elliptic curve digital signature algorithm) with domain parameters secp256k1.
 *)
 
 BeginPackage["ECDSA`"];
