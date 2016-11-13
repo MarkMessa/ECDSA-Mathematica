@@ -71,7 +71,7 @@ It is possible to define other operations besides addition, for example, scalar 
 nP=P+P+⋯+P (n times)
 ```
 Written in that form, it seems that computing nP requires n additions. If n has k binary digits, then the algorithm would be O(2^k), which is not really good. However, there exist faster algorithms. One of them is the double and add algorithm.
-Its principle of operation can be better explained with an example. For n=151 it would be written as:
+Its principle of operation can be better explained with an example. For example, take n=151:
 ```
 151⋅P=(2^7)P+(2^4)P+(2^2)P+(2^1)P+(2^0)P
 ```
