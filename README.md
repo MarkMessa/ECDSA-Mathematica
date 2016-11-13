@@ -51,7 +51,7 @@ The code is divided in two main parts:
 ##Pseudo-Codes
 ###Elliptic curve operations over a finite field of integers modulo p
 ####Point addition: Function ecAddMod
-Given P=(xp, yp), Q=(xq, yq) and R=(xr, yr), we can calculate the point addition P+Q=−R as follows:
+Given P=(xp, yp), Q=(xq, yq) and R=(xr, yr), the point addition P+Q=−R can be calculated as follows:
 ```
 xr=(m^2−xp−xq) mod p
 yr=[yp+m(xr−xp)] mod p
